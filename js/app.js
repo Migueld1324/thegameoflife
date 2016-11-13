@@ -61,12 +61,12 @@ function Cell (cell){
 	this.isAlive = cell === 0 || cell === 1 ? cell : Math.round(Math.random());
 }
 
-$(".table-container").load("./html/table.html", function(response, status){
-    $("table").load("./html/row.html", function (response, status){
+$(".table-container").load("https://migueld1324.github.io/thegameoflife/html/table.html", function(response, status){
+    $("table").load("https://migueld1324.github.io/thegameoflife/html/row.html", function (response, status){
         for (let i = 0; i < 99; i++) {
             $(this).append(response);
         }
-        $("tr").load("./html/cell.html", function (response, status){
+        $("tr").load("https://migueld1324.github.io/thegameoflife/html/cell.html", function (response, status){
             for (let i = 0; i < 99; i++) {
                 $(this).append(response);
             }

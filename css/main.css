@@ -1,0 +1,111 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    margin: 20px;
+
+}
+
+.container {
+    margin: 0 auto;
+    width: 700px;
+    height: 500px;
+    border: 1px solid black;
+}
+
+.table-container {
+    width: 500px;
+    height: 500px;
+    border-right: 1px solid black;
+    float: left;
+
+}
+
+.btn-container {
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    background-color: #FFFFF0;
+
+}
+
+.btn {
+    width: 100px;
+    height: 100px;
+    border-radius: 25%;
+    border: 2px white outset;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn:active {
+    border: 2px white inset;
+}
+
+.btn:focus {
+    outline: 0;
+}
+
+.btn-create {
+    background-color: #6495ED;
+    color: black;
+
+}
+
+.btn-create:active {
+    background-color: #64BBEE;
+}
+
+.btn-evolve {
+    background-color: #FFD700;
+    color: black;
+}
+
+.btn-evolve:active {
+    background-color: #DAA520;
+}
+
+.btn-play {
+    background-color: #228B22;
+}
+
+.btn-play:active {
+    background-color: #006400;
+}
+
+.btn-stop {
+    background-color: red;
+}
+
+.btn-stop:active {
+    background-color: darkred;
+}
+
+table {
+    margin: 0;
+    padding: 0;
+}
+
+tr {
+    margin: 0;
+    padding: 0;
+}
+
+td {
+    width: 5px;
+    height: 5px;
+    background-color: white;
+
+}
+
+.btn-disabled {
+    cursor: not-allowed;
+    background-color: darkgray;
+    color: black;
+}

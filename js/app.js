@@ -15,18 +15,6 @@ Board.prototype.evolve = function evolve(){
     let newBoard = this.board.map(function(element, indexI, board){
         let temp = element.map(function(element, indexJ, elem){
         let sum = Board.prototype.getAliveNeighbors([indexI, indexJ], board);
-        // for(let i = indexI-1; i <= indexI+1; i++){
-        //     for(let j = indexJ-1; j <= indexJ+1; j++){
-        //         if(i < 0 || i === board.length ||
-        //            j < 0 || j === elem.length ||
-        //           (i === indexI && j === indexJ)){
-        //             continue;
-        //         }
-        //         if(board[i][j].isAlive){
-        //             sum++;
-        //         }
-        //     }
-        // }
         if(element.isAlive === 1){
             if(sum === 2 || sum === 3){
                 return element;
@@ -88,11 +76,11 @@ function Cell (cell){
 
 $(".table-container").load("https://migueld1324.github.io/thegameoflife/html/table.html", function(response, status){
     $("table").load("https://migueld1324.github.io/thegameoflife/html/row.html", function (response, status){
-        for (let i = 0; i < 99; i++) {
+        for (let i = 0; i < 399; i++) {
             $(this).append(response);
         }
         $("tr").load("https://migueld1324.github.io/thegameoflife/html/cell.html", function (response, status){
-            for (let i = 0; i < 99; i++) {
+            for (let i = 0; i < 499; i++) {
                 $(this).append(response);
             }
         });
@@ -123,18 +111,18 @@ $(".table-container").load("https://migueld1324.github.io/thegameoflife/html/tab
 
         $(cells).css("backgroundColor", "orange");
 
-        newBoard = new Board(100,100);
+        newBoard = new Board(500,400);
         boardForPrint = newBoard.get();
 
         for(let i = 0; i < rows.length; i++){
             for(let j = 0; j < rows.length; j++){
                 if(boardForPrint[i][j] === 0){
-                    if($(cells[(i*100) + j]).css("backgroundColor") === "rgb(255, 165, 0)"){
-                        $(cells[(i*100) + j]).css("backgroundColor", "black");
+                    if($(cells[(i*500) + j]).css("backgroundColor") === "rgb(255, 165, 0)"){
+                        $(cells[(i*500) + j]).css("backgroundColor", "black");
                     }
                 } else {
-                    if($(cells[(i*100) + j]).css("backgroundColor") === "rgb(0, 0, 0)"){
-                        $(cells[(i*100) + j]).css("backgroundColor", "orange");
+                    if($(cells[(i*500) + j]).css("backgroundColor") === "rgb(0, 0, 0)"){
+                        $(cells[(i*500) + j]).css("backgroundColor", "orange");
                     }
                 }
             }
@@ -152,14 +140,12 @@ $(".table-container").load("https://migueld1324.github.io/thegameoflife/html/tab
         for(let i = 0; i < rows.length; i++){
             for(let j = 0; j < rows.length; j++){
                 if(boardForPrint[i][j] === 0){
-                    if($(cells[(i*100) + j]).css("backgroundColor") === "rgb(255, 165, 0)"){
-                        $(cells[(i*100) + j]).css("backgroundColor", "black");
-                        console.log($(cells[(i*100) + j]).css("backgroundColor"));
+                    if($(cells[(i*500) + j]).css("backgroundColor") === "rgb(255, 165, 0)"){
+                        $(cells[(i*500) + j]).css("backgroundColor", "black");
                     }
                 } else {
-                    if($(cells[(i*100) + j]).css("backgroundColor") === "rgb(0, 0, 0)"){
-                        $(cells[(i*100) + j]).css("backgroundColor", "orange");
-                        console.log($(cells[(i*100) + j]).css("backgroundColor"));
+                    if($(cells[(i*500) + j]).css("backgroundColor") === "rgb(0, 0, 0)"){
+                        $(cells[(i*500) + j]).css("backgroundColor", "orange");
                     }
                 }
             }
@@ -186,12 +172,12 @@ $(".table-container").load("https://migueld1324.github.io/thegameoflife/html/tab
                 for(let i = 0; i < rows.length; i++){
                     for(let j = 0; j < rows.length; j++){
                         if(boardForPrint[i][j] === 0){
-                            if($(cells[(i*100) + j]).css("backgroundColor") === "rgb(255, 165, 0)"){
-                                $(cells[(i*100) + j]).css("backgroundColor", "black");
+                            if($(cells[(i*500) + j]).css("backgroundColor") === "rgb(255, 165, 0)"){
+                                $(cells[(i*500) + j]).css("backgroundColor", "black");
                             }
                         } else {
-                            if($(cells[(i*100) + j]).css("backgroundColor") === "rgb(0, 0, 0)"){
-                                $(cells[(i*100) + j]).css("backgroundColor", "orange");
+                            if($(cells[(i*500) + j]).css("backgroundColor") === "rgb(0, 0, 0)"){
+                                $(cells[(i*500) + j]).css("backgroundColor", "orange");
                             }
                         }
                     }

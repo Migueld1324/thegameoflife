@@ -11,14 +11,10 @@ h1 {
 
 .container {
     margin: 0 auto;
-    width: 700px;
-    height: 500px;
     border: 1px solid black;
 }
 
 .table-container {
-    width: 500px;
-    height: 500px;
     border-right: 1px solid black;
     float: left;
 
@@ -98,8 +94,8 @@ tr {
 }
 
 td {
-    width: 5px;
-    height: 5px;
+    width: 2px;
+    height: 2px;
     background-color: white;
 
 }

@@ -70,7 +70,11 @@ Board.prototype.getAliveNeighbors = function getAliveNeighbors(coords) {
     ];
     let aliveNighbors = 0;
     neighborsCords.forEach((coord) => {
-        let cell = this.board[coord[0]][coord[1]];
+        let row = this.board[coord[0]];
+        let cell;
+        if (row) {
+            cell = row[coord[1]];
+        }
         if (cell) {
             aliveNighbors += cell.isAlive;
         }

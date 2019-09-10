@@ -14,7 +14,7 @@ function Board (m,n){
 Board.prototype.evolve = function evolve(){
     let newBoard = this.board.map(function(element, indexI, board){
         let temp = element.map(function(element, indexJ, elem){
-        let sum = Board.prototype.getAliveNeighbors([indexI, indexJ], this.board);
+        let sum = Board.prototype.getAliveNeighbors([indexI, indexJ], board);
         // for(let i = indexI-1; i <= indexI+1; i++){
         //     for(let j = indexJ-1; j <= indexJ+1; j++){
         //         if(i < 0 || i === board.length ||

@@ -12,50 +12,71 @@ function Board (m,n){
 }
 
 Board.prototype.evolve = function evolve(){
-			let newBoard = this.board.map(function(element, indexI, board){
-				let temp = element.map(function(element, indexJ, elem){
-					let sum = 0;
-					for(let i = indexI-1; i <= indexI+1; i++){
-                        for(let j = indexJ-1; j <= indexJ+1; j++){
-                            if(i < 0 || i === board.length ||
-                               j < 0 || j === elem.length ||
-                               (i === indexI && j === indexJ)){
-                                continue;
-                            }
-                            if(board[i][j].isAlive){
-                                sum++;
-                            }
-                        }
-					}
-					if(element.isAlive === 1){
-						if(sum === 2 || sum === 3){
-							return element;
-						} else {
-							element = new Cell(0);
-							return element;
-						}
-					} else if(sum === 3){
-						element = new Cell(1);
-						return element;
-					} else {
-						return element;
-					}
-				});
-				return temp;
-			});
-			this.board = newBoard;
-			return this;
-		};
+    let newBoard = this.board.map(function(element, indexI, board){
+        let temp = element.map(function(element, indexJ, elem){
+        let sum = this.board.getAliveNeighbors([indexI, indexJ]);
+        // for(let i = indexI-1; i <= indexI+1; i++){
+        //     for(let j = indexJ-1; j <= indexJ+1; j++){
+        //         if(i < 0 || i === board.length ||
+        //            j < 0 || j === elem.length ||
+        //           (i === indexI && j === indexJ)){
+        //             continue;
+        //         }
+        //         if(board[i][j].isAlive){
+        //             sum++;
+        //         }
+        //     }
+        // }
+        if(element.isAlive === 1){
+            if(sum === 2 || sum === 3){
+                return element;
+            } else {
+                element = new Cell(0);
+                return element;
+            }
+        } else if(sum === 3){
+            element = new Cell(1);
+            return element;
+        } else {
+            return element;
+        }
+        });
+        return temp;
+	});
+	this.board = newBoard;
+	return this;
+};
 
 Board.prototype.get = function get(){
-		let boardCopy = this.board.map(function (element){
-			let elementCopy = element.map(function (element){
-				return element.isAlive;
-			});
-			return elementCopy;
-		});
-		return boardCopy;
-	};
+    let boardCopy = this.board.map(function (element){
+        let elementCopy = element.map(function (element){
+            return element.isAlive;
+        });
+        return elementCopy;
+    });
+    return boardCopy;
+};
+
+Board.prototype.getAliveNeighbors = function getAliveNeighbors(coords) {
+    let neighborsCords = [
+        [coords[0] - 1, coords[1] - 1],
+        [coords[0] - 1, coords[1]],
+        [coords[0] - 1, coords[1] + 1],
+        [coords[0], coords[1] - 1],
+        [coords[0], coords[1] + 1],
+        [coords[0] + 1, coords[1] - 1],
+        [coords[0] + 1, coords[1]],
+        [coords[0] + 1, coords[1] + 1],
+    ];
+    let aliveNighbors = 0;
+    neighborsCords.forEach((coord) => {
+        let cell = this.board[coord[0]][coord[1]];
+        if (cell) {
+            aliveNighbors += cell.isAlive;
+        }
+    });
+    return aliveNighbors;
+}
 
 function Cell (cell){
 	this.isAlive = cell === 0 || cell === 1 ? cell : Math.round(Math.random());
